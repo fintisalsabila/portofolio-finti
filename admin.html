@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel – Finti Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+  --bg-primary: #080c14;
+  --bg-secondary: #0d1423;
+  --bg-card: #111827;
+  --border: rgba(99,179,237,0.12);
+  --border-accent: rgba(99,179,237,0.3);
+  --text-primary: #e8f0fe;
+  --text-secondary: #8da3c4;
+  --text-muted: #4a6080;
+  --accent: #4facfe;
+  --accent-2: #00f2fe;
+  --accent-3: #43e97b;
+  --accent-red: #f87171;
+  --accent-yellow: #fbbf24;
+  --glow: rgba(79,172,254,0.1);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --sidebar-w: 240px;
+}
+[data-theme="light"] {
+  --bg-primary: #f0f4ff;
+  --bg-secondary: #e4ecff;
+  --bg-card: #ffffff;
+  --border: rgba(79,172,254,0.15);
+  --border-accent: rgba(79,172,254,0.4);
+  --text-primary: #0d1a2d;
+  --text-secondary: #3a5a8c;
+  --text-muted: #7a9abf;
+  --accent: #1a7fd4;
+  --accent-2: #0099cc;
+  --glow: rgba(26,127,212,0.08);
+  --gradient-accent: linear-gradient(135deg, #1a7fd4 0%, #0099cc 100%);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); display: flex; min-height: 100vh; }
+
+/* SIDEBAR */
+.sidebar {
+  width: var(--sidebar-w);
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+.sidebar-logo {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.logo-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #080c14;
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.logo-sub {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+}
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  overflow-y: auto;
+}
+.nav-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.8rem 0.75rem 0.4rem;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 0.83rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  margin-bottom: 0.1rem;
+}
+.nav-item:hover, .nav-item.active {
+  color: var(--accent);
+  background: var(--glow);
+  border-color: var(--border);
+}
+.nav-item i { width: 16px; text-align: center; font-size: 0.8rem; }
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+}
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+.user-avatar {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #080c14;
+}
+.user-name { font-size: 0.78rem; font-weight: 600; color: var(--text-primary); }
+.user-role { font-family: var(--font-mono); font-size: 0.6rem; color: var(--text-muted); }
+
+/* MAIN */
+.main-content {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.topbar {
+  height: 56px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.topbar-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.btn-sm {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.btn-sm:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); }
+.btn-sm.primary {
+  background: var(--gradient-accent);
+  color: #080c14;
+  border: none;
+}
+.btn-sm.primary:hover { opacity: 0.9; box-shadow: 0 4px 15px var(--glow); }
+.btn-sm.danger { border-color: var(--accent-red); color: var(--accent-red); }
+.btn-sm.danger:hover { background: rgba(248,113,113,0.1); }
+
+/* PAGE CONTENT */
+.page-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+.page-section { display: none; }
+.page-section.active { display: block; }
+
+/* STATS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.stat-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
+.stat-card-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+.stat-card-icon.blue { background: rgba(79,172,254,0.15); color: var(--accent); }
+.stat-card-icon.green { background: rgba(67,233,123,0.15); color: var(--accent-3); }
+.stat-card-icon.yellow { background: rgba(251,191,36,0.15); color: var(--accent-yellow); }
+.stat-card-icon.red { background: rgba(248,113,113,0.15); color: var(--accent-red); }
+.stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.2rem; }
+.stat-label { font-size: 0.78rem; color: var(--text-muted); }
+
+/* TABLE */
+.table-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.table-header {
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.table-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.75rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+tbody td {
+  padding: 0.85rem 1.2rem;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--bg-secondary); color: var(--text-primary); }
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 50px;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
+.badge.green { background: rgba(67,233,123,0.15); color: var(--accent-3); border: 1px solid rgba(67,233,123,0.2); }
+.badge.yellow { background: rgba(251,191,36,0.15); color: var(--accent-yellow); border: 1px solid rgba(251,191,36,0.2); }
+.badge.red { background: rgba(248,113,113,0.15); color: var(--accent-red); border: 1px solid rgba(248,113,113,0.2); }
+.badge.blue { background: rgba(79,172,254,0.15); color: var(--accent); border: 1px solid rgba(79,172,254,0.2); }
+.action-btns { display: flex; gap: 0.4rem; }
+.icon-btn {
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  transition: all 0.2s;
+}
+.icon-btn.edit:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); }
+.icon-btn.del:hover { border-color: var(--accent-red); color: var(--accent-red); background: rgba(248,113,113,0.1); }
+
+/* FORM MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-header {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
+.modal-close {
+  width: 30px; height: 30px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.modal-close:hover { border-color: var(--accent-red); color: var(--accent-red); }
+.modal-body { padding: 1.5rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.4rem; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  outline: none;
+  transition: all 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--glow);
+}
+.form-group textarea { min-height: 90px; resize: vertical; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+/* SIDEBAR TOGGLE */
+.sidebar-toggle {
+  display: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* SEARCH BAR */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.search-input {
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  outline: none;
+  min-width: 200px;
+  transition: all 0.2s;
+}
+.search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
+
+/* THEME TOGGLE */
+.theme-toggle-admin {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 32px; height: 32px;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+.theme-toggle-admin:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main-content { margin-left: 0; }
+  .sidebar-toggle { display: flex; }
+  .form-row { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">FSS</div>
+    <div>
+      <div class="logo-text">Portfolio Admin</div>
+      <div class="logo-sub">Management Panel</div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Dashboard</div>
+    <div class="nav-item active" onclick="showPage('dashboard', this)"><i class="fas fa-chart-pie"></i> Overview</div>
+
+    <div class="nav-section-label">Content</div>
+    <div class="nav-item" onclick="showPage('projects', this)"><i class="fas fa-folder-open"></i> Projects</div>
+    <div class="nav-item" onclick="showPage('skills', this)"><i class="fas fa-code"></i> Tech Stack</div>
+    <div class="nav-item" onclick="showPage('certifications', this)"><i class="fas fa-certificate"></i> Certifications</div>
+    <div class="nav-item" onclick="showPage('experience', this)"><i class="fas fa-briefcase"></i> Experience</div>
+
+    <div class="nav-section-label">Clients</div>
+    <div class="nav-item" onclick="showPage('inquiries', this)"><i class="fas fa-inbox"></i> Inquiries <span id="inqBadge" style="margin-left:auto;background:var(--accent-red);color:#fff;font-size:0.6rem;padding:0.15rem 0.45rem;border-radius:50px;font-family:var(--font-mono);">3</span></div>
+    <div class="nav-item" onclick="showPage('clients', this)"><i class="fas fa-users"></i> Clients</div>
+
+    <div class="nav-section-label">Settings</div>
+    <div class="nav-item" onclick="showPage('profile', this)"><i class="fas fa-user-circle"></i> Profile</div>
+    <div class="nav-item" onclick="window.open('index.html','_blank')"><i class="fas fa-external-link-alt"></i> View Portfolio</div>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar">FSS</div>
+      <div>
+        <div class="user-name">Finti Sasa S.</div>
+        <div class="user-role">Administrator</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+  <div class="topbar">
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+      <span class="topbar-title" id="topbarTitle">Dashboard Overview</span>
+    </div>
+    <div class="topbar-right">
+      <button class="theme-toggle-admin" id="themeToggle"><i class="fas fa-moon" id="themeIcon"></i></button>
+      <button class="btn-sm primary" onclick="openModal('addModal')"><i class="fas fa-plus"></i> Add New</button>
+    </div>
+  </div>
+
+  <div class="page-content">
+
+    <!-- DASHBOARD -->
+    <div class="page-section active" id="page-dashboard">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-icon blue"><i class="fas fa-folder"></i></div>
+          <div class="stat-num">10</div>
+          <div class="stat-label">Total Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon green"><i class="fas fa-inbox"></i></div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">New Inquiries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon yellow"><i class="fas fa-users"></i></div>
+          <div class="stat-num">8</div>
+          <div class="stat-label">Total Clients</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon red"><i class="fas fa-certificate"></i></div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+      </div>
+      <div class="table-container">
+        <div class="table-header">
+          <span class="table-title">Recent Inquiries</span>
+          <button class="btn-sm" onclick="showPage('inquiries', null)">View All</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th><th>Email</th><th>Service</th><th>Budget</th><th>Status</th><th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ahmad Rizki</td><td>ahmad@email.com</td><td>Web Development</td><td>Rp 5–15 Juta</td>
+                <td><span class="badge yellow">New</span></td><td>05 Jun 2024</td>
+              </tr>
+              <tr>
+                <td>Dewi Sari</td><td>dewi@email.com</td><td>Android App</td><td>Rp 15–50 Juta</td>
+                <td><span class="badge yellow">New</span></td><td>04 Jun 2024</td>
+              </tr>
+              <tr>
+                <td>PT Maju Jaya</td><td>info@majujaya.co.id</td><td>Full Stack</td><td>>Rp 50 Juta</td>
+                <td><span class="badge green">Contacted</span></td><td>03 Jun 2024</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="page-section" id="page-projects">
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search projects...">
+        <select class="search-input" style="min-width:140px;">
+          <option>All Categories</option>
+          <option>Web</option>
+          <option>Android</option>
+          <option>Full Stack</option>
+        </select>
+        <button class="btn-sm primary" onclick="openModal('projectModal')"><i class="fas fa-plus"></i> Add Project</button>
+      </div>
+      <div class="table-container">
+        <div class="table-header">
+          <span class="table-title">All Projects</span>
+          <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);">10 projects</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Project Name</th><th>Category</th><th>Tech Stack</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="projectsTable">
+              <tr><td>1</td><td>Website Prodi SIIO</td><td><span class="badge blue">Web</span></td><td>CI4, MySQL, Bootstrap</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="icon-btn edit" onclick="openModal('projectModal')"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>2</td><td>Website Prodi TRO</td><td><span class="badge blue">Web</span></td><td>Laravel, MySQL</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="icon-btn edit" onclick="openModal('projectModal')"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>3</td><td>Website Prodi TIO</td><td><span class="badge blue">Web</span></td><td>CI4, MySQL</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>4</td><td>Website Prodi TKP</td><td><span class="badge blue">Web</span></td><td>PHP, MySQL</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>5</td><td>Website Prodi ABO</td><td><span class="badge blue">Web</span></td><td>Laravel, MySQL</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>6</td><td>Web LSP</td><td><span class="badge yellow">Full Stack</span></td><td>CI4, MySQL, AJAX</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>7</td><td>Web SPM</td><td><span class="badge yellow">Full Stack</span></td><td>Laravel, Chart.js</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>8</td><td>Assessment TVET</td><td><span class="badge yellow">Full Stack</span></td><td>CI4, jQuery</td><td><span class="badge yellow">Dev</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>9</td><td>Web E-Ticketing</td><td><span class="badge yellow">Full Stack</span></td><td>Laravel, Midtrans</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>10</td><td>Android E-Learning</td><td><span class="badge red">Android</span></td><td>Kotlin, Retrofit, Firebase</td><td><span class="badge green">Live</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="page-section" id="page-skills">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:1rem;">
+        <button class="btn-sm primary" onclick="openModal('skillModal')"><i class="fas fa-plus"></i> Add Skill</button>
+      </div>
+      <div class="table-container">
+        <div class="table-header"><span class="table-title">Tech Stack Management</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Skill Name</th><th>Category</th><th>Level</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Kotlin</td><td>Mobile</td><td><span class="badge green">Expert</span></td><td><div class="action-btns"><button class="icon-btn edit" onclick="openModal('skillModal')"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>2</td><td>CodeIgniter 4</td><td>Backend</td><td><span class="badge green">Expert</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>3</td><td>Laravel</td><td>Backend</td><td><span class="badge blue">Advanced</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>4</td><td>React</td><td>Frontend</td><td><span class="badge yellow">Intermediate</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>5</td><td>MySQL</td><td>Database</td><td><span class="badge green">Expert</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="page-section" id="page-certifications">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:1rem;">
+        <button class="btn-sm primary" onclick="openModal('certModal')"><i class="fas fa-plus"></i> Add Certification</button>
+      </div>
+      <div class="table-container">
+        <div class="table-header"><span class="table-title">Certifications</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Certification Name</th><th>Issuer</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Back-End Developer</td><td>DBS Foundation</td><td>Sep 2024</td><td><span class="badge green">Active</span></td><td><div class="action-btns"><button class="icon-btn edit" onclick="openModal('certModal')"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>2</td><td>Full Stack Web Development</td><td>Harisenin</td><td>2023</td><td><span class="badge green">Active</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>3</td><td>Meta Android Developer</td><td>Coursera/Meta</td><td>Aug 2023</td><td><span class="badge green">Active</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>4</td><td>IT Support Specialization</td><td>Coursera/Google</td><td>Aug 2023</td><td><span class="badge green">Active</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>5</td><td>Mobile Dev & JavaScript</td><td>Coursera</td><td>Aug 2023</td><td><span class="badge green">Active</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="page-section" id="page-experience">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:1rem;">
+        <button class="btn-sm primary" onclick="openModal('expModal')"><i class="fas fa-plus"></i> Add Experience</button>
+      </div>
+      <div class="table-container">
+        <div class="table-header"><span class="table-title">Work Experience</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Company</th><th>Role</th><th>Duration</th><th>Type</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>PT Wahana Makmur Sejati</td><td>Mobile Developer</td><td>1 Year</td><td><span class="badge blue">Internship</span></td><td><div class="action-btns"><button class="icon-btn edit" onclick="openModal('expModal')"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>2</td><td>[Company Name]</td><td>Full Stack Developer</td><td>6 Months</td><td><span class="badge yellow">Contract</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- INQUIRIES -->
+    <div class="page-section" id="page-inquiries">
+      <div class="table-container">
+        <div class="table-header">
+          <span class="table-title">Client Inquiries</span>
+          <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--accent-red);">3 unread</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Service</th><th>Budget</th><th>Message</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Ahmad Rizki</td><td>ahmad@email.com</td><td>08123456789</td><td>Web Dev</td><td>Rp 5–15 Juta</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;">Butuh website company profile...</td><td><span class="badge yellow">New</span></td><td>05 Jun</td><td><div class="action-btns"><button class="icon-btn edit" title="Mark as read"><i class="fas fa-check"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>2</td><td>Dewi Sari</td><td>dewi@email.com</td><td>08234567890</td><td>Android</td><td>Rp 15–50 Juta</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;">Mau buat app toko online...</td><td><span class="badge yellow">New</span></td><td>04 Jun</td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-check"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>3</td><td>PT Maju Jaya</td><td>info@majujaya.co.id</td><td>02112345678</td><td>Full Stack</td><td>>Rp 50 Juta</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;">Sistem ERP perusahaan kami...</td><td><span class="badge green">Contacted</span></td><td>03 Jun</td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-check"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLIENTS -->
+    <div class="page-section" id="page-clients">
+      <div class="table-container">
+        <div class="table-header"><span class="table-title">Client Management</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Client Name</th><th>Contact</th><th>Project</th><th>Value</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>PT Maju Jaya</td><td>info@majujaya.co.id</td><td>Full Stack ERP</td><td>Rp 75 Juta</td><td><span class="badge green">Active</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+              <tr><td>2</td><td>Universitas XYZ</td><td>admin@univ.ac.id</td><td>Assessment TVET</td><td>Rp 25 Juta</td><td><span class="badge blue">Completed</span></td><td><div class="action-btns"><button class="icon-btn edit"><i class="fas fa-pen"></i></button><button class="icon-btn del"><i class="fas fa-trash"></i></button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="page-section" id="page-profile">
+      <div class="table-container" style="max-width:600px;">
+        <div class="table-header"><span class="table-title">Profile Settings</span></div>
+        <div style="padding:1.5rem;">
+          <div class="form-group"><label>Full Name</label><input type="text" value="Finti Sasa Sabila"></div>
+          <div class="form-group"><label>Email</label><input type="email" value="finti.sasa.sabila@gmail.com"></div>
+          <div class="form-group"><label>Phone</label><input type="text" value="+62 895-1618-9819"></div>
+          <div class="form-group"><label>Location</label><input type="text" value="Jakarta Utara, Indonesia"></div>
+          <div class="form-group"><label>Bio</label><textarea>Passionate and aspiring web developer with a strong desire to create innovative solutions...</textarea></div>
+          <div class="form-group"><label>GitHub URL</label><input type="url" placeholder="https://github.com/..."></div>
+          <div class="form-group"><label>LinkedIn URL</label><input type="url" placeholder="https://linkedin.com/in/..."></div>
+          <button class="btn-sm primary" style="font-size:0.8rem;padding:0.6rem 1.2rem;"><i class="fas fa-save"></i> Save Changes</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODALS -->
+<!-- Add/Edit Project Modal -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Add / Edit Project</span>
+      <button class="modal-close" onclick="closeModal('projectModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Project Title</label><input type="text" placeholder="e.g. Web E-Ticketing"></div>
+      <div class="form-group"><label>Category</label>
+        <select><option>Web</option><option>Android</option><option>Full Stack</option><option>IT Support</option></select>
+      </div>
+      <div class="form-group"><label>Description</label><textarea placeholder="Brief project description..."></textarea></div>
+      <div class="form-group"><label>Tech Stack (comma separated)</label><input type="text" placeholder="Laravel, MySQL, Bootstrap"></div>
+      <div class="form-row">
+        <div class="form-group"><label>Demo URL</label><input type="url" placeholder="https://..."></div>
+        <div class="form-group"><label>GitHub URL</label><input type="url" placeholder="https://github.com/..."></div>
+      </div>
+      <div class="form-group"><label>Status</label>
+        <select><option>Live</option><option>In Development</option><option>Archived</option></select>
+      </div>
+      <div class="form-group"><label>Project Image</label><input type="file" accept="image/*"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-sm" onclick="closeModal('projectModal')">Cancel</button>
+      <button class="btn-sm primary"><i class="fas fa-save"></i> Save Project</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Skill Modal -->
+<div class="modal-overlay" id="skillModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Add / Edit Skill</span>
+      <button class="modal-close" onclick="closeModal('skillModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Skill Name</label><input type="text" placeholder="e.g. Kotlin"></div>
+      <div class="form-group"><label>Category</label>
+        <select><option>Mobile</option><option>Backend</option><option>Frontend</option><option>Database</option><option>Tools</option><option>Soft Skills</option></select>
+      </div>
+      <div class="form-group"><label>Level</label>
+        <select><option>Beginner</option><option>Intermediate</option><option>Advanced</option><option>Expert</option></select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-sm" onclick="closeModal('skillModal')">Cancel</button>
+      <button class="btn-sm primary"><i class="fas fa-save"></i> Save Skill</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Cert Modal -->
+<div class="modal-overlay" id="certModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Add / Edit Certification</span>
+      <button class="modal-close" onclick="closeModal('certModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Certification Name</label><input type="text" placeholder="e.g. Meta Android Developer"></div>
+      <div class="form-group"><label>Issuer</label><input type="text" placeholder="e.g. Coursera / Google"></div>
+      <div class="form-row">
+        <div class="form-group"><label>Issue Date</label><input type="month"></div>
+        <div class="form-group"><label>Expiry Date (optional)</label><input type="month"></div>
+      </div>
+      <div class="form-group"><label>Credential URL</label><input type="url" placeholder="https://coursera.org/..."></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-sm" onclick="closeModal('certModal')">Cancel</button>
+      <button class="btn-sm primary"><i class="fas fa-save"></i> Save Cert</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Experience Modal -->
+<div class="modal-overlay" id="expModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Add / Edit Experience</span>
+      <button class="modal-close" onclick="closeModal('expModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Company Name</label><input type="text" placeholder="e.g. PT Wahana Makmur Sejati"></div>
+      <div class="form-group"><label>Role / Position</label><input type="text" placeholder="e.g. Mobile Developer"></div>
+      <div class="form-group"><label>Type</label>
+        <select><option>Internship</option><option>Contract</option><option>Full Time</option><option>Part Time</option><option>Freelance</option></select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Start Date</label><input type="month"></div>
+        <div class="form-group"><label>End Date</label><input type="month"></div>
+      </div>
+      <div class="form-group"><label>Description</label><textarea placeholder="Describe your responsibilities..."></textarea></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-sm" onclick="closeModal('expModal')">Cancel</button>
+      <button class="btn-sm primary"><i class="fas fa-save"></i> Save Experience</button>
+    </div>
+  </div>
+</div>
+
+<!-- Generic Add Modal -->
+<div class="modal-overlay" id="addModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Quick Add</span>
+      <button class="modal-close" onclick="closeModal('addModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1rem;">What would you like to add?</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;">
+        <button class="btn-sm" style="padding:0.8rem;flex-direction:column;height:auto;display:flex;gap:0.4rem;font-size:0.8rem;" onclick="closeModal('addModal');openModal('projectModal')"><i class="fas fa-folder" style="font-size:1.2rem;color:var(--accent)"></i>Project</button>
+        <button class="btn-sm" style="padding:0.8rem;flex-direction:column;height:auto;display:flex;gap:0.4rem;font-size:0.8rem;" onclick="closeModal('addModal');openModal('skillModal')"><i class="fas fa-code" style="font-size:1.2rem;color:var(--accent-3)"></i>Skill</button>
+        <button class="btn-sm" style="padding:0.8rem;flex-direction:column;height:auto;display:flex;gap:0.4rem;font-size:0.8rem;" onclick="closeModal('addModal');openModal('certModal')"><i class="fas fa-certificate" style="font-size:1.2rem;color:var(--accent-yellow)"></i>Certification</button>
+        <button class="btn-sm" style="padding:0.8rem;flex-direction:column;height:auto;display:flex;gap:0.4rem;font-size:0.8rem;" onclick="closeModal('addModal');openModal('expModal')"><i class="fas fa-briefcase" style="font-size:1.2rem;color:var(--accent-warm, #f093fb)"></i>Experience</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// THEME
+const html = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+let isDark = true;
+function setTheme(dark) {
+  isDark = dark;
+  html.setAttribute('data-theme', dark ? 'dark' : 'light');
+  themeIcon.className = dark ? 'fas fa-moon' : 'fas fa-sun';
+}
+const saved = localStorage.getItem('theme');
+if (saved) setTheme(saved === 'dark');
+themeToggle.addEventListener('click', () => { setTheme(!isDark); localStorage.setItem('theme', isDark ? 'dark' : 'light'); });
+
+// SIDEBAR TOGGLE (mobile)
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebar = document.getElementById('sidebar');
+sidebarToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+
+// PAGE NAV
+const pageTitles = {
+  dashboard: 'Dashboard Overview',
+  projects: 'Projects Management',
+  skills: 'Tech Stack / Skills',
+  certifications: 'Certifications',
+  experience: 'Work Experience',
+  inquiries: 'Client Inquiries',
+  clients: 'Client Management',
+  profile: 'Profile Settings',
+};
+function showPage(name, el) {
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('topbarTitle').textContent = pageTitles[name] || name;
+  if (el) el.classList.add('active');
+  sidebar.classList.remove('open');
+}
+
+// MODALS
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+});
+</script>
+</body>
+</html>

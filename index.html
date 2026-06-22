@@ -22,32 +22,36 @@
 <nav id="navbar">
   <div class="nav-logo">FSS.</div>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#certifications">Certs</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#skills" data-i18n="nav.skills">Skills</a>
+    <a href="#experience" data-i18n="nav.experience">Experience</a>
+    <a href="#education" data-i18n="nav.education">Education</a>
+    <a href="#certifications" data-i18n="nav.certs">Certs</a>
+    <a href="#projects" data-i18n="nav.projects">Projects</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
   </div>
-  <div class="nav-right">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <i class="fas fa-moon" id="themeIcon"></i>
-    </button>
-    <button class="hamburger" id="hamburger">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
+<div class="nav-right">
+  <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+    <i class="fas fa-globe"></i>
+    <span id="langLabel">EN</span>
+  </button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <i class="fas fa-moon" id="themeIcon"></i>
+  </button>
+  <button class="hamburger" id="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#skills" onclick="closeMobile()">Skills</a>
-  <a href="#experience" onclick="closeMobile()">Experience</a>
-  <a href="#education" onclick="closeMobile()">Education</a>
-  <a href="#certifications" onclick="closeMobile()">Certifications</a>
-  <a href="#projects" onclick="closeMobile()">Projects</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#about" onclick="closeMobile()" data-i18n="nav.about">About</a>
+  <a href="#skills" onclick="closeMobile()" data-i18n="nav.skills">Skills</a>
+  <a href="#experience" onclick="closeMobile()" data-i18n="nav.experience">Experience</a>
+  <a href="#education" onclick="closeMobile()" data-i18n="nav.education">Education</a>
+  <a href="#certifications" onclick="closeMobile()" data-i18n="nav.certs">Certifications</a>
+  <a href="#projects" onclick="closeMobile()" data-i18n="nav.projects">Projects</a>
+  <a href="#contact" onclick="closeMobile()" data-i18n="nav.contact">Contact</a>
 </div>
 
 <!-- ==================== HERO ==================== -->
@@ -57,26 +61,26 @@
   <div class="hero-glow-2"></div>
   <div class="hero-container">
     <div class="hero-content">
-      <div class="hero-tag">Available for Projects</div>
+      <div class="hero-tag" data-i18n="hero.tag">Available for Projects</div>
       <h1 class="hero-title">
         Finti Sasa<br>
         <span class="line-2">Sabila</span>
       </h1>
-      <p class="hero-subtitle">// Full Stack Developer & Android Engineer</p>
-      <p class="hero-desc">
+      <p class="hero-subtitle" data-i18n="hero.subtitle">// Full Stack Developer & Android Engineer</p>
+      <p class="hero-desc" data-i18n="hero.desc">
         Passionate and aspiring developer with a deep love for creating innovative solutions. Experienced in Android, Web, and Full Stack development — turning ideas into seamless digital experiences.
       </p>
       <div class="hero-actions">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Hire Me</a>
+        <a href="#projects" class="btn-primary" data-i18n="hero.viewProjects">View Projects</a>
+        <a href="#contact" class="btn-outline" data-i18n="hero.hireMe">Hire Me</a>
       </div>
       <!-- CV Download Buttons -->
       <div class="cv-downloads">
         <a href="assets/finti_sasa_sabila_cv_it.pdf" download class="btn-cv">
-          <i class="fas fa-file-pdf"></i> Download CV (EN)
+          <i class="fas fa-file-pdf"></i> <span data-i18n="hero.cvEn">Download CV (EN)</span>
         </a>
         <a href="assets/finti_sasa_sabila_cv_indonesia.pdf" download class="btn-cv">
-          <i class="fas fa-file-pdf"></i> Download CV (ID)
+          <i class="fas fa-file-pdf"></i> <span data-i18n="hero.cvId">Download CV (ID)</span>
         </a>
       </div>
       <div class="hero-socials">
@@ -90,20 +94,20 @@
       <div class="profile-card">
         <img src="assets/finti.jpg" alt="Finti Sasa Sabila" class="profile-avatar" onerror="this.src='https://via.placeholder.com/80x80?text=FSS'">
         <div class="profile-name">Finti Sasa Sabila</div>
-        <div class="profile-role">Full Stack • Android • IT Support</div>
-        <div class="profile-location"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</div>
+        <div class="profile-role" data-i18n="hero.role">Full Stack • Android • IT Support</div>
+        <div class="profile-location"><i class="fas fa-map-marker-alt"></i> <span data-i18n="hero.location">Jakarta, Indonesia</span></div>
         <div class="stats-row">
           <div class="stat-item">
             <div class="stat-num">28+</div>
-            <div class="stat-label">Projects</div>
+            <div class="stat-label" data-i18n="hero.projects">Projects</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">3+yr</div>
-            <div class="stat-label">Exp.</div>
+            <div class="stat-label" data-i18n="hero.exp">Exp.</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">7</div>
-            <div class="stat-label">Certs</div>
+            <div class="stat-label" data-i18n="hero.certs">Certs</div>
           </div>
         </div>
       </div>
@@ -128,44 +132,44 @@
   <div class="section-container">
     <div class="section-header fade-up">
       <div>
-        <div class="section-number">01 / about</div>
-        <h2 class="section-title">About Me</h2>
+        <div class="section-number">01 / <span data-i18n="about.title">about</span></div>
+        <h2 class="section-title" data-i18n="about.heading">About Me</h2>
       </div>
       <div class="section-line"></div>
     </div>
     <div class="about-grid fade-up">
       <div class="about-text">
-        <p>Hi! I'm <strong>Finti Sasa Sabila</strong>, a passionate and aspiring developer based in Jakarta, Indonesia. I have a strong desire to create innovative solutions and push the boundaries of technology.</p>
-        <p>With a deep love for coding and problem-solving, I constantly seek opportunities to learn and grow in this ever-evolving field. My experience spans across Android development, full stack web development, and IT support.</p>
-        <p>I've worked professionally as a <strong>Full Stack Developer</strong> at Politeknik STMI Jakarta, as a <strong>Mobile Developer</strong> at PT Wahana Makmur Sejati, and as a <strong>Freelance Web Developer</strong> building real-world applications that serve actual users.</p>
+        <p data-i18n="about.p1">Hi! I'm <strong>Finti Sasa Sabila</strong>, a passionate and aspiring developer based in Jakarta, Indonesia. I have a strong desire to create innovative solutions and push the boundaries of technology.</p>
+        <p data-i18n="about.p2">With a deep love for coding and problem-solving, I constantly seek opportunities to learn and grow in this ever-evolving field. My experience spans across Android development, full stack web development, and IT support.</p>
+        <p data-i18n="about.p3">I've worked professionally as a <strong>Full Stack Developer</strong> at Politeknik STMI Jakarta, as a <strong>Mobile Developer</strong> at PT Wahana Makmur Sejati, and as a <strong>Freelance Web Developer</strong> building real-world applications that serve actual users.</p>
       </div>
       <div class="about-highlights">
         <div class="highlight-item">
           <div class="highlight-icon"><i class="fas fa-mobile-alt"></i></div>
           <div class="highlight-text">
-            <strong>Android Developer</strong>
-            <span>Kotlin, Java, Retrofit, XML Layout Design — building native Android apps</span>
+            <strong data-i18n="about.h1.title">Android Developer</strong>
+            <span data-i18n="about.h1.desc">Kotlin, Java, Retrofit, XML Layout Design — building native Android apps</span>
           </div>
         </div>
         <div class="highlight-item">
           <div class="highlight-icon"><i class="fas fa-globe"></i></div>
           <div class="highlight-text">
-            <strong>Web Developer</strong>
-            <span>Laravel, CodeIgniter 4, PHP Native, Bootstrap — building responsive web apps</span>
+            <strong data-i18n="about.h2.title">Web Developer</strong>
+            <span data-i18n="about.h2.desc">Laravel, CodeIgniter 4, PHP Native, Bootstrap — building responsive web apps</span>
           </div>
         </div>
         <div class="highlight-item">
           <div class="highlight-icon"><i class="fas fa-layer-group"></i></div>
           <div class="highlight-text">
-            <strong>Full Stack Developer</strong>
-            <span>End-to-end development from database design to UI implementation</span>
+            <strong data-i18n="about.h3.title">Full Stack Developer</strong>
+            <span data-i18n="about.h3.desc">End-to-end development from database design to UI implementation</span>
           </div>
         </div>
         <div class="highlight-item">
           <div class="highlight-icon"><i class="fas fa-headset"></i></div>
           <div class="highlight-text">
-            <strong>IT Support</strong>
-            <span>Server configuration, system troubleshooting, database administration</span>
+            <strong data-i18n="about.h4.title">IT Support</strong>
+            <span data-i18n="about.h4.desc">Server configuration, system troubleshooting, database administration</span>
           </div>
         </div>
       </div>
@@ -178,8 +182,8 @@
   <div class="section-container">
     <div class="section-header fade-up">
       <div>
-        <div class="section-number">02 / skills</div>
-        <h2 class="section-title">Technical Skills</h2>
+        <div class="section-number">02 / <span data-i18n="skills.title">skills</span></div>
+        <h2 class="section-title" data-i18n="skills.heading">Technical Skills</h2>
       </div>
       <div class="section-line"></div>
     </div>
@@ -187,7 +191,7 @@
       <div class="skill-category">
         <div class="skill-cat-header">
           <div class="skill-cat-icon"><i class="fas fa-mobile-alt"></i></div>
-          <span class="skill-cat-name">Mobile Development</span>
+          <span class="skill-cat-name" data-i18n="skills.mobile">Mobile Development</span>
         </div>
         <div class="skill-tags">
           <span class="skill-tag">Kotlin</span>
@@ -202,7 +206,7 @@
       <div class="skill-category">
         <div class="skill-cat-header">
           <div class="skill-cat-icon"><i class="fas fa-server"></i></div>
-          <span class="skill-cat-name">Backend & Server</span>
+          <span class="skill-cat-name" data-i18n="skills.backend">Backend & Server</span>
         </div>
         <div class="skill-tags">
           <span class="skill-tag">PHP</span>
@@ -217,7 +221,7 @@
       <div class="skill-category">
         <div class="skill-cat-header">
           <div class="skill-cat-icon"><i class="fas fa-palette"></i></div>
-          <span class="skill-cat-name">Frontend</span>
+          <span class="skill-cat-name" data-i18n="skills.frontend">Frontend</span>
         </div>
         <div class="skill-tags">
           <span class="skill-tag">HTML5</span>
@@ -232,7 +236,7 @@
       <div class="skill-category">
         <div class="skill-cat-header">
           <div class="skill-cat-icon"><i class="fas fa-tools"></i></div>
-          <span class="skill-cat-name">Tools & Platforms</span>
+          <span class="skill-cat-name" data-i18n="skills.tools">Tools & Platforms</span>
         </div>
         <div class="skill-tags">
           <span class="skill-tag">Git & GitHub</span>
@@ -241,7 +245,7 @@
           <span class="skill-tag">Docker</span>
           <span class="skill-tag">Kubernetes</span>
           <span class="skill-tag">Jenkins</span>
-           <span class="skill-tag">aaPanel</span>
+          <span class="skill-tag">aaPanel</span>
           <span class="skill-tag">Android Studio</span>
           <span class="skill-tag">XAMPP</span>
           <span class="skill-tag">DBeaver</span>
@@ -253,38 +257,38 @@
       <div class="skill-category">
         <div class="skill-cat-header">
           <div class="skill-cat-icon"><i class="fas fa-shield-alt"></i></div>
-          <span class="skill-cat-name">System Admin & IT Support</span>
+          <span class="skill-cat-name" data-i18n="skills.itSupport">System Admin & IT Support</span>
         </div>
         <div class="skill-tags">
-          <span class="skill-tag">Server Config</span>
-          <span class="skill-tag">DB Admin</span>
-          <span class="skill-tag">API Integration</span>
-          <span class="skill-tag">Software & Hardware Troubleshooting</span>
-          <span class="skill-tag">Crimping LAN Cable</span>
-          <span class="skill-tag">Wi-Fi Setup</span>
-          <span class="skill-tag">Basic Cloud</span>
-          <span class="skill-tag">Chrome Remote Desktop</span>
-          <span class="skill-tag">Backup & Recovery</span>
-          <span class="skill-tag">Microsoft Office 365</span>
+          <span class="skill-tag" data-i18n="skills.serverConfig">Server Config</span>
+          <span class="skill-tag" data-i18n="skills.dbAdmin">DB Admin</span>
+          <span class="skill-tag" data-i18n="skills.apiIntegration">API Integration</span>
+          <span class="skill-tag" data-i18n="skills.troubleshooting">Software & Hardware Troubleshooting</span>
+          <span class="skill-tag" data-i18n="skills.crimping">Crimping LAN Cable</span>
+          <span class="skill-tag" data-i18n="skills.wifi">Wi-Fi Setup</span>
+          <span class="skill-tag" data-i18n="skills.cloud">Basic Cloud</span>
+          <span class="skill-tag" data-i18n="skills.remoteDesktop">Chrome Remote Desktop</span>
+          <span class="skill-tag" data-i18n="skills.backup">Backup & Recovery</span>
+          <span class="skill-tag" data-i18n="skills.office">Microsoft Office 365</span>
         </div>
       </div>
       <div class="skill-category">
         <div class="skill-cat-header">
           <div class="skill-cat-icon"><i class="fas fa-brain"></i></div>
-          <span class="skill-cat-name">Soft Skills</span>
+          <span class="skill-cat-name" data-i18n="skills.softSkills">Soft Skills</span>
         </div>
         <div class="skill-tags">
-          <span class="skill-tag">Problem-Solving</span>
-          <span class="skill-tag">Teamwork</span>
-          <span class="skill-tag">Time Management</span>
-          <span class="skill-tag">Communication</span>
-          <span class="skill-tag">Adaptability</span>
-          <span class="skill-tag">Detail-Oriented</span>
-          <span class="skill-tag">Customer Service</span>
-          <span class="skill-tag">Conflict Resolution</span>
-          <span class="skill-tag">Critical Thinking</span>
-          <span class="skill-tag">Decision Making</span>
-          <span class="skill-tag">Documentation</span>
+          <span class="skill-tag" data-i18n="skills.problemSolving">Problem-Solving</span>
+          <span class="skill-tag" data-i18n="skills.teamwork">Teamwork</span>
+          <span class="skill-tag" data-i18n="skills.timeManagement">Time Management</span>
+          <span class="skill-tag" data-i18n="skills.communication">Communication</span>
+          <span class="skill-tag" data-i18n="skills.adaptability">Adaptability</span>
+          <span class="skill-tag" data-i18n="skills.detailOriented">Detail-Oriented</span>
+          <span class="skill-tag" data-i18n="skills.customerService">Customer Service</span>
+          <span class="skill-tag" data-i18n="skills.conflictResolution">Conflict Resolution</span>
+          <span class="skill-tag" data-i18n="skills.criticalThinking">Critical Thinking</span>
+          <span class="skill-tag" data-i18n="skills.decisionMaking">Decision Making</span>
+          <span class="skill-tag" data-i18n="skills.documentation">Documentation</span>
         </div>
       </div>
     </div>
@@ -296,8 +300,8 @@
   <div class="section-container">
     <div class="section-header fade-up">
       <div>
-        <div class="section-number">03 / experience</div>
-        <h2 class="section-title">Work Experience</h2>
+        <div class="section-number">03 / <span data-i18n="experience.title">experience</span></div>
+        <h2 class="section-title" data-i18n="experience.heading">Work Experience</h2>
       </div>
       <div class="section-line"></div>
     </div>
@@ -310,13 +314,13 @@
             <span class="timeline-company">Politeknik STMI Jakarta</span>
             <span class="timeline-period">Dec 2025 – Jun 2026</span>
           </div>
-          <div class="timeline-role">Full Stack Developer · Internship</div>
+          <div class="timeline-role" data-i18n="exp.role1">Full Stack Developer · Internship</div>
           <ul class="timeline-desc">
-            <li>Developed 5 study-program websites (TRO, ABO, TIO, TKP, SIIO), improving online program visibility and information accessibility.</li>
-            <li>Built an SPM (Quality Assurance Management) web application to support structured institutional reporting workflows.</li>
-            <li>Developed a TVET web platform to support vocational education program management and documentation.</li>
-            <li>Built the LSP (Professional Certification Body) website, enabling digital certification and assessor management.</li>
-            <li>Developed an Android-based e-learning application to support mobile learning for students and instructors.</li>
+            <li data-i18n="exp.item1.1">Developed 5 study-program websites (TRO, ABO, TIO, TKP, SIIO), improving online program visibility and information accessibility.</li>
+            <li data-i18n="exp.item1.2">Built an SPM (Quality Assurance Management) web application to support structured institutional reporting workflows.</li>
+            <li data-i18n="exp.item1.3">Developed a TVET web platform to support vocational education program management and documentation.</li>
+            <li data-i18n="exp.item1.4">Built the LSP (Professional Certification Body) website, enabling digital certification and assessor management.</li>
+            <li data-i18n="exp.item1.5">Developed an Android-based e-learning application to support mobile learning for students and instructors.</li>
           </ul>
         </div>
       </div>
@@ -329,11 +333,11 @@
             <span class="timeline-company">PT Wahana Makmur Sejati</span>
             <span class="timeline-period">Mar 2024 – Feb 2025</span>
           </div>
-          <div class="timeline-role">Mobile Application Developer · Internship</div>
+          <div class="timeline-role" data-i18n="exp.role2">Mobile Application Developer · Internship</div>
           <ul class="timeline-desc">
-            <li>Reduced manual form usage by 80% by developing the Android Mechanic Audit Tools application.</li>
-            <li>Accelerated tool ordering response time by 40% by building the Android Mechanic Order Tools application.</li>
-            <li>Designed the Android Mechanic Training Registration application and Web Services (Node.js + MySQL) for a mobile-backend integrated training registration system.</li>
+            <li data-i18n="exp.item2.1">Reduced manual form usage by 80% by developing the Android Mechanic Audit Tools application.</li>
+            <li data-i18n="exp.item2.2">Accelerated tool ordering response time by 40% by building the Android Mechanic Order Tools application.</li>
+            <li data-i18n="exp.item2.3">Designed the Android Mechanic Training Registration application and Web Services (Node.js + MySQL) for a mobile-backend integrated training registration system.</li>
           </ul>
         </div>
       </div>
@@ -343,14 +347,14 @@
         <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
         <div class="timeline-content">
           <div class="timeline-meta">
-            <span class="timeline-company">Information System Developer</span>
+            <span class="timeline-company" data-i18n="exp.company3">Information System Developer</span>
             <span class="timeline-period">Aug 2022 – Mar 2023</span>
           </div>
-          <div class="timeline-role">Web Developer · Freelance</div>
+          <div class="timeline-role" data-i18n="exp.role3">Web Developer · Freelance</div>
           <ul class="timeline-desc">
-            <li>Cut manual administration time by 50% by building a church administration web system managing 150+ active congregation records, including baptism registration and member data management.</li>
-            <li>Handled an average of 200+ monthly transactions by developing a motorcycle service administration app with online booking, repair history, and customer management features.</li>
-            <li>Developed an employee KPI web system for PT DKB with assessment input, sub-criteria, weight calculation, and final score features for structured performance evaluation.</li>
+            <li data-i18n="exp.item3.1">Cut manual administration time by 50% by building a church administration web system managing 150+ active congregation records, including baptism registration and member data management.</li>
+            <li data-i18n="exp.item3.2">Handled an average of 200+ monthly transactions by developing a motorcycle service administration app with online booking, repair history, and customer management features.</li>
+            <li data-i18n="exp.item3.3">Developed an employee KPI web system for PT DKB with assessment input, sub-criteria, weight calculation, and final score features for structured performance evaluation.</li>
           </ul>
         </div>
       </div>
@@ -363,22 +367,22 @@
   <div class="section-container">
     <div class="section-header fade-up">
       <div>
-        <div class="section-number">04 / education</div>
-        <h2 class="section-title">Education</h2>
+        <div class="section-number">04 / <span data-i18n="education.title">education</span></div>
+        <h2 class="section-title" data-i18n="education.heading">Education</h2>
       </div>
       <div class="section-line"></div>
     </div>
     <div class="edu-grid fade-up">
       <div class="edu-card">
         <div class="edu-icon"><i class="fas fa-university"></i></div>
-        <div class="edu-degree">Applied Bachelor's Degree: Industrial Automotive Information Systems (GPA 3.77)</div>
-        <div class="edu-school">POLITEKNIK STMI JAKARTA · Jakarta</div>
+        <div class="edu-degree" data-i18n="edu.degree1">Applied Bachelor's Degree: Industrial Automotive Information Systems (GPA 3.77)</div>
+        <div class="edu-school" data-i18n="edu.school1">POLITEKNIK STMI JAKARTA · Jakarta</div>
         <div class="edu-period">Sep 2021 – Jul 2025</div>
       </div>
       <div class="edu-card">
         <div class="edu-icon"><i class="fas fa-laptop-code"></i></div>
-        <div class="edu-degree">Back-End Developer Program</div>
-        <div class="edu-school">DBS FOUNDATION · Online</div>
+        <div class="edu-degree" data-i18n="edu.degree2">Back-End Developer Program</div>
+        <div class="edu-school" data-i18n="edu.school2">DBS FOUNDATION · Online</div>
         <div class="edu-period">Mar – Sep 2023</div>
       </div>
     </div>
@@ -390,8 +394,8 @@
   <div class="section-container">
     <div class="section-header fade-up">
       <div>
-        <div class="section-number">05 / certifications</div>
-        <h2 class="section-title">Certifications</h2>
+        <div class="section-number">05 / <span data-i18n="certifications.title">certifications</span></div>
+        <h2 class="section-title" data-i18n="certifications.heading">Certifications</h2>
       </div>
       <div class="section-line"></div>
     </div>
@@ -399,7 +403,7 @@
       <div class="cert-card">
         <div class="cert-icon blue"><i class="fas fa-chart-line"></i></div>
         <div>
-          <div class="cert-name">Penyusunan Proses Bisnis Sistem Informasi Di Industri Manufaktur</div>
+          <div class="cert-name" data-i18n="cert.name1">Penyusunan Proses Bisnis Sistem Informasi Di Industri Manufaktur</div>
           <div class="cert-org">BNSP · Jun 2026</div>
         </div>
       </div>
@@ -427,21 +431,21 @@
       <div class="cert-card">
         <div class="cert-icon green"><i class="fas fa-laptop-code"></i></div>
         <div>
-          <div class="cert-name">Full Stack Web Development</div>
+          <div class="cert-name" data-i18n="cert.name5">Full Stack Web Development</div>
           <div class="cert-org">Harisenin Coding Camp · 2024</div>
         </div>
       </div>
       <div class="cert-card">
         <div class="cert-icon purple"><i class="fab fa-android"></i></div>
         <div>
-          <div class="cert-name">Meta Android Developer</div>
+          <div class="cert-name" data-i18n="cert.name6">Meta Android Developer</div>
           <div class="cert-org">Coursera (Meta) · Aug 2023</div>
         </div>
       </div>
       <div class="cert-card">
         <div class="cert-icon blue"><i class="fas fa-headset"></i></div>
         <div>
-          <div class="cert-name">IT Support Specialization</div>
+          <div class="cert-name" data-i18n="cert.name7">IT Support Specialization</div>
           <div class="cert-org">Coursera (Google) · Aug 2023</div>
         </div>
       </div>
@@ -454,15 +458,15 @@
   <div class="section-container">
     <div class="section-header fade-up">
       <div>
-        <div class="section-number">06 / projects</div>
-        <h2 class="section-title">Portfolio Projects</h2>
+        <div class="section-number">06 / <span data-i18n="projects.title">projects</span></div>
+        <h2 class="section-title" data-i18n="projects.heading">Portfolio Projects</h2>
       </div>
       <div class="section-line"></div>
     </div>
     <div class="projects-filter fade-up">
-      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
-      <button class="filter-btn" onclick="filterProjects('web', this)">Web</button>
-      <button class="filter-btn" onclick="filterProjects('android', this)">Android</button>
+      <button class="filter-btn active" onclick="filterProjects('all', this)" data-i18n="projects.filterAll">All</button>
+      <button class="filter-btn" onclick="filterProjects('web', this)" data-i18n="projects.filterWeb">Web</button>
+      <button class="filter-btn" onclick="filterProjects('android', this)" data-i18n="projects.filterAndroid">Android</button>
     </div>
     <div class="projects-grid fade-up" id="projectsGrid">
 
@@ -475,7 +479,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Website Prodi SIIO</div>
-          <p class="project-desc">Information and Automation System — official study program website with academic information, announcements, and lecturer profiles.</p>
+          <p class="project-desc" data-i18n="project.siio">Information and Automation System — official study program website with academic information, announcements, and lecturer profiles.</p>
           <div class="project-stack">
             <span class="stack-tag">CodeIgniter 4</span><span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span>
           </div>
@@ -495,7 +499,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Website Prodi TRO</div>
-          <p class="project-desc">Automation Engineering website with content management, activity galleries, and curriculum information for the study program.</p>
+          <p class="project-desc" data-i18n="project.tro">Automation Engineering website with content management, activity galleries, and curriculum information for the study program.</p>
           <div class="project-stack">
             <span class="stack-tag">Laravel</span><span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">Tailwind</span>
           </div>
@@ -515,7 +519,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Website Prodi TIO</div>
-          <p class="project-desc">Informatics and Automation portal — integrated academic information management system.</p>
+          <p class="project-desc" data-i18n="project.tio">Informatics and Automation portal — integrated academic information management system.</p>
           <div class="project-stack">
             <span class="stack-tag">CodeIgniter 4</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span>
           </div>
@@ -534,7 +538,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Website Prodi TKP</div>
-          <p class="project-desc">Construction Engineering study program website with news content management and academic information.</p>
+          <p class="project-desc" data-i18n="project.tkp">Construction Engineering study program website with news content management and academic information.</p>
           <div class="project-stack">
             <span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span>
           </div>
@@ -553,7 +557,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Website Prodi ABO</div>
-          <p class="project-desc">Online Business Administration portal with student information systems and study program news management.</p>
+          <p class="project-desc" data-i18n="project.abo">Online Business Administration portal with student information systems and study program news management.</p>
           <div class="project-stack">
             <span class="stack-tag">Laravel</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span>
           </div>
@@ -572,7 +576,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Web LSP (Professional Certification Body)</div>
-          <p class="project-desc">Professional certification management system with participant registration, exam scheduling, and digital certificate issuance.</p>
+          <p class="project-desc" data-i18n="project.lsp">Professional certification management system with participant registration, exam scheduling, and digital certificate issuance.</p>
           <div class="project-stack">
             <span class="stack-tag">CodeIgniter 4</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span><span class="stack-tag">AJAX</span>
           </div>
@@ -592,7 +596,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Web SPM (Quality Assurance Management)</div>
-          <p class="project-desc">Internal quality assurance management application with monitoring dashboards, accreditation reports, and quality standard data management.</p>
+          <p class="project-desc" data-i18n="project.spm">Internal quality assurance management application with monitoring dashboards, accreditation reports, and quality standard data management.</p>
           <div class="project-stack">
             <span class="stack-tag">Laravel</span><span class="stack-tag">MySQL</span><span class="stack-tag">Chart.js</span><span class="stack-tag">Bootstrap</span>
           </div>
@@ -612,7 +616,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">SIMAMI (Student Admission System)</div>
-          <p class="project-desc">Integrated system for prospective students to register for college admission. Streamlines the application process and manages student data efficiently.</p>
+          <p class="project-desc" data-i18n="project.simami">Integrated system for prospective students to register for college admission. Streamlines the application process and manages student data efficiently.</p>
           <div class="project-stack">
             <span class="stack-tag">Laravel</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span>
           </div>
@@ -632,7 +636,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Key Performance Indicator System</div>
-          <p class="project-desc">Monitors and evaluates organizational performance through clear KPIs. Provides dashboards and reports for data-driven decision making.</p>
+          <p class="project-desc" data-i18n="project.kpi">Monitors and evaluates organizational performance through clear KPIs. Provides dashboards and reports for data-driven decision making.</p>
           <div class="project-stack">
             <span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Bootstrap</span>
           </div>
@@ -652,7 +656,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">HarvestHouse (Property Search)</div>
-          <p class="project-desc">A modern property search platform that helps users find their ideal homes with advanced filtering and location-based search features.</p>
+          <p class="project-desc" data-i18n="project.harvest">A modern property search platform that helps users find their ideal homes with advanced filtering and location-based search features.</p>
           <div class="project-stack">
             <span class="stack-tag">React</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Netlify</span>
           </div>
@@ -672,7 +676,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Sushi Food (Restaurant Order)</div>
-          <p class="project-desc">A sleek and modern sushi restaurant ordering platform with an interactive menu, cart system, and seamless ordering experience.</p>
+          <p class="project-desc" data-i18n="project.sushi">A sleek and modern sushi restaurant ordering platform with an interactive menu, cart system, and seamless ordering experience.</p>
           <div class="project-stack">
             <span class="stack-tag">React</span><span class="stack-tag">JavaScript</span><span class="stack-tag">CSS3</span><span class="stack-tag">Netlify</span>
           </div>
@@ -692,7 +696,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Car Rental Web Application</div>
-          <p class="project-desc">A complete car rental platform with vehicle listings, booking system, availability calendar, and user authentication for seamless car rental experience.</p>
+          <p class="project-desc" data-i18n="project.car">A complete car rental platform with vehicle listings, booking system, availability calendar, and user authentication for seamless car rental experience.</p>
           <div class="project-stack">
             <span class="stack-tag">React</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Netlify</span>
           </div>
@@ -712,7 +716,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Assessment TVET Platform</div>
-          <p class="project-desc">Competency assessment platform for TVET (Technical and Vocational Education and Training) with online exams, assessor evaluation, and competency reports.</p>
+          <p class="project-desc" data-i18n="project.tvet">Competency assessment platform for TVET (Technical and Vocational Education and Training) with online exams, assessor evaluation, and competency reports.</p>
           <div class="project-stack">
             <span class="stack-tag">CodeIgniter 4</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span><span class="stack-tag">jQuery</span>
           </div>
@@ -732,7 +736,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Web E-Ticketing</div>
-          <p class="project-desc">Complete electronic ticketing system with online ticket purchases, QR code verification, admin dashboard, and real-time sales reports.</p>
+          <p class="project-desc" data-i18n="project.eticket">Complete electronic ticketing system with online ticket purchases, QR code verification, admin dashboard, and real-time sales reports.</p>
           <div class="project-stack">
             <span class="stack-tag">Laravel</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span><span class="stack-tag">QR Code</span><span class="stack-tag">Midtrans</span>
           </div>
@@ -752,7 +756,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Kamus Bahasa Daerah (Regional Dictionary)</div>
-          <p class="project-desc">Interactive regional language dictionary web application to preserve and learn various regional languages in Indonesia.</p>
+          <p class="project-desc" data-i18n="project.dictionary">Interactive regional language dictionary web application to preserve and learn various regional languages in Indonesia.</p>
           <div class="project-stack">
             <span class="stack-tag">React</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Netlify</span>
           </div>
@@ -772,7 +776,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">STMIDESK (E-Ticketing Android)</div>
-          <p class="project-desc">STMIDESK is an e-ticketing system designed to simplify event or service ticketing. It offers a secure, user-friendly platform for managing ticket sales and access, making the process convenient for both organizers and users.</p>
+          <p class="project-desc" data-i18n="project.stmidesk">STMIDESK is an e-ticketing system designed to simplify event or service ticketing. It offers a secure, user-friendly platform for managing ticket sales and access, making the process convenient for both organizers and users.</p>
           <div class="project-stack">
             <span class="stack-tag">Kotlin</span><span class="stack-tag">Android</span><span class="stack-tag">Retrofit</span><span class="stack-tag">Firebase</span>
           </div>
@@ -792,7 +796,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Audit Tools Bengkel APP</div>
-          <p class="project-desc">This mobile app helps automotive workshops conduct regular audits to ensure compliance with standards. It simplifies the inspection process, identifies areas for improvement, and generates detailed audit reports.</p>
+          <p class="project-desc" data-i18n="project.audit">This mobile app helps automotive workshops conduct regular audits to ensure compliance with standards. It simplifies the inspection process, identifies areas for improvement, and generates detailed audit reports.</p>
           <div class="project-stack">
             <span class="stack-tag">Kotlin</span><span class="stack-tag">Android</span><span class="stack-tag">Retrofit</span><span class="stack-tag">REST API</span>
           </div>
@@ -812,7 +816,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Order Tools Bengkel APP</div>
-          <p class="project-desc">This application helps automotive workshops manage tool orders and inventory efficiently. It ensures that essential tools are always available, streamlining operations and minimizing downtime.</p>
+          <p class="project-desc" data-i18n="project.order">This application helps automotive workshops manage tool orders and inventory efficiently. It ensures that essential tools are always available, streamlining operations and minimizing downtime.</p>
           <div class="project-stack">
             <span class="stack-tag">Kotlin</span><span class="stack-tag">Android</span><span class="stack-tag">Retrofit</span><span class="stack-tag">MySQL</span>
           </div>
@@ -832,7 +836,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Training Mekanik APP</div>
-          <p class="project-desc">A dedicated app for managing mechanic training programs. It allows mechanics to register for courses, track progress, and access training materials, supporting skill development and certification.</p>
+          <p class="project-desc" data-i18n="project.training">A dedicated app for managing mechanic training programs. It allows mechanics to register for courses, track progress, and access training materials, supporting skill development and certification.</p>
           <div class="project-stack">
             <span class="stack-tag">Kotlin</span><span class="stack-tag">Android</span><span class="stack-tag">Node.js</span><span class="stack-tag">MySQL</span>
           </div>
@@ -852,7 +856,7 @@
         </div>
         <div class="project-body">
           <div class="project-title">Android E-Learning App</div>
-          <p class="project-desc">Android e-learning application with multimedia materials, interactive quizzes, progress tracking, and digital course completion certificates.</p>
+          <p class="project-desc" data-i18n="project.elearning">Android e-learning application with multimedia materials, interactive quizzes, progress tracking, and digital course completion certificates.</p>
           <div class="project-stack">
             <span class="stack-tag">Kotlin</span><span class="stack-tag">Android</span><span class="stack-tag">Retrofit</span><span class="stack-tag">REST API</span><span class="stack-tag">Firebase</span>
           </div>
@@ -867,7 +871,7 @@
     <!-- Toggle Button -->
     <div class="projects-toggle">
       <button class="btn-toggle" id="toggleProjects" onclick="toggleProjects()">
-        <i class="fas fa-chevron-down"></i> Show More Projects
+        <i class="fas fa-chevron-down"></i> <span data-i18n="projects.showMore">Show More Projects</span>
       </button>
     </div>
   </div>
@@ -878,16 +882,16 @@
   <div class="section-container">
     <div class="section-header fade-up">
       <div>
-        <div class="section-number">07 / contact</div>
-        <h2 class="section-title">Let's Work Together</h2>
+        <div class="section-number">07 / <span data-i18n="contact.title">contact</span></div>
+        <h2 class="section-title" data-i18n="contact.heading">Let's Work Together</h2>
       </div>
       <div class="section-line"></div>
     </div>
     
     <div class="contact-grid fade-up">
       <div class="contact-info">
-        <h3>Got a project in mind?</h3>
-        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Drop me a message and let's talk!</p>
+        <h3 data-i18n="contact.question">Got a project in mind?</h3>
+        <p data-i18n="contact.desc">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Drop me a message and let's talk!</p>
         <div class="contact-details">
           <div class="contact-item">
             <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
@@ -899,11 +903,11 @@
           </div>
           <div class="contact-item">
             <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <span>Jakarta, Indonesia</span>
+            <span data-i18n="contact.location">Jakarta, Indonesia</span>
           </div>
           <div class="contact-item">
             <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
-            <span>WIB (UTC+7) · Available for shifts</span>
+            <span data-i18n="contact.timezone">WIB (UTC+7) · Available for shifts</span>
           </div>
         </div>
       </div>
@@ -911,38 +915,38 @@
         <form action="/submit-interest" method="POST">
           <div class="form-row">
             <div class="form-group">
-              <label>Name</label>
+              <label data-i18n="contact.name">Name</label>
               <input type="text" name="name" placeholder="Your name" required>
             </div>
             <div class="form-group">
-              <label>Email</label>
+              <label data-i18n="contact.email">Email</label>
               <input type="email" name="email" placeholder="your@email.com" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Phone</label>
+              <label data-i18n="contact.phone">Phone</label>
               <input type="tel" name="phone" placeholder="+62 xxx" required>
             </div>
             <div class="form-group">
-              <label>Service</label>
+              <label data-i18n="contact.service">Service</label>
               <select name="service" required>
-                <option value="">— Select Service —</option>
-                <option value="android">Android App Development</option>
-                <option value="web">Web Development</option>
-                <option value="fullstack">Full Stack Development</option>
-                <option value="it_support">IT Support</option>
-                <option value="api">API Development</option>
-                <option value="other">Other</option>
+                <option value="" data-i18n="contact.selectService">— Select Service —</option>
+                <option value="android" data-i18n="contact.serviceAndroid">Android App Development</option>
+                <option value="web" data-i18n="contact.serviceWeb">Web Development</option>
+                <option value="fullstack" data-i18n="contact.serviceFullstack">Full Stack Development</option>
+                <option value="it_support" data-i18n="contact.serviceIt">IT Support</option>
+                <option value="api" data-i18n="contact.serviceApi">API Development</option>
+                <option value="other" data-i18n="contact.serviceOther">Other</option>
               </select>
             </div>
           </div>
           <div class="form-group">
-            <label>Message</label>
+            <label data-i18n="contact.message">Message</label>
             <textarea name="message" placeholder="Tell me about your project..." required></textarea>
           </div>
           <button type="submit" class="btn-primary" style="width:100%;justify-content:center;display:flex;gap:0.5rem;align-items:center;">
-            <i class="fas fa-paper-plane"></i> Send Message
+            <i class="fas fa-paper-plane"></i> <span data-i18n="contact.send">Send Message</span>
           </button>
         </form>
       </div> -->

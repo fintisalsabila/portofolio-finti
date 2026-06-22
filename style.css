@@ -1167,6 +1167,38 @@ section {
   transform: rotate(180deg);
 }
 
+
+/* ==================== LANGUAGE TOGGLE ==================== */
+.lang-toggle {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.lang-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--glow);
+}
+
+.lang-toggle i {
+  font-size: 0.8rem;
+}
+
+.lang-toggle #langLabel {
+  font-weight: 600;
+}
+
 /* ==================== RESPONSIVE UPDATES ==================== */
 @media (max-width: 768px) {
   .cv-downloads {

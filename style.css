@@ -1092,6 +1092,111 @@ section {
   color: var(--accent-warm);
 }
 
+
+/* ==================== CV DOWNLOAD BUTTONS ==================== */
+.cv-downloads {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-cv {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  color: var(--text-secondary);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-cv:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--glow);
+  transform: translateY(-2px);
+}
+
+.btn-cv i {
+  font-size: 0.85rem;
+}
+
+/* ==================== PROJECTS TOGGLE ==================== */
+.projects-toggle {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.btn-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.7rem 2rem;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  color: var(--accent);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-toggle:hover {
+  background: var(--glow);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--glow);
+}
+
+.btn-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.btn-toggle.active i {
+  transform: rotate(180deg);
+}
+
+/* ==================== RESPONSIVE UPDATES ==================== */
+@media (max-width: 768px) {
+  .cv-downloads {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-cv {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .btn-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+  }
+  
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline {
+    text-align: center;
+    width: 100%;
+  }
+}
+
 /* ==================== FOOTER ==================== */
 footer {
   padding: 2rem;

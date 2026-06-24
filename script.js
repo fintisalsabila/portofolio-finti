@@ -96,26 +96,40 @@ let isExpanded = false;
 function toggleProjects() {
   const toggleBtn = document.getElementById('toggleProjects');
   const allProjects = document.querySelectorAll('.project-card');
-  const currentFilter = document.querySelector('.filter-btn.active')?.textContent.toLowerCase() || 'all';
+  const currentFilterText = document.querySelector('.filter-btn.active')?.textContent.toLowerCase() || 'all';
+  
+  // Map filter text to category
+  let filterCategory = 'all';
+  if (currentFilterText === 'web' || currentFilterText === 'website') {
+    filterCategory = 'web';
+  } else if (currentFilterText === 'android') {
+    filterCategory = 'android';
+  } else {
+    filterCategory = 'all';
+  }
   
   isExpanded = !isExpanded;
   toggleBtn.classList.toggle('active');
+  
+  // Get current language
+  const currentLang = document.getElementById('langLabel').textContent.toLowerCase();
+  const t = translations[currentLang] || translations.en;
   
   if (isExpanded) {
     // Show all projects
     allProjects.forEach(card => {
       const categories = card.dataset.category || '';
-      if (currentFilter === 'all' || categories.includes(currentFilter) || categories === currentFilter) {
+      if (filterCategory === 'all' || categories.includes(filterCategory) || categories === filterCategory) {
         card.style.display = '';
       }
     });
-    toggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Show Less Projects';
+    toggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i> ' + t.proj_show_less;
   } else {
     // Show only 3 projects
     let count = 0;
     allProjects.forEach(card => {
       const categories = card.dataset.category || '';
-      const isVisible = currentFilter === 'all' || categories.includes(currentFilter) || categories === currentFilter;
+      const isVisible = filterCategory === 'all' || categories.includes(filterCategory) || categories === filterCategory;
       
       if (isVisible) {
         count++;
@@ -126,7 +140,7 @@ function toggleProjects() {
         }
       }
     });
-    toggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Show More Projects';
+    toggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i> ' + t.proj_show_more;
   }
 }
 
@@ -389,6 +403,25 @@ function toggleLanguage() {
   langLabel.textContent = currentLang.toUpperCase();
   localStorage.setItem('language', currentLang);
   updateLanguage(currentLang);
+  
+  // Update toggle button text
+  updateToggleButtonText();
+}
+
+// ==================== UPDATE TOGGLE BUTTON TEXT ====================
+function updateToggleButtonText() {
+  const toggleBtn = document.getElementById('toggleProjects');
+  const currentLang = document.getElementById('langLabel').textContent.toLowerCase();
+  const t = translations[currentLang] || translations.en;
+  
+  if (toggleBtn) {
+    const isExpanded = toggleBtn.classList.contains('active');
+    if (isExpanded) {
+      toggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i> ' + t.proj_show_less;
+    } else {
+      toggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i> ' + t.proj_show_more;
+    }
+  }
 }
 
 // ==================== UPDATE LANGUAGE FUNCTION ====================
@@ -478,6 +511,9 @@ function updateLanguage(lang) {
   
   // Update Footer
   document.querySelector('.footer-text').textContent = t.footer_text;
+  
+  // Update toggle button text
+  updateToggleButtonText();
 }
 
 // ==================== CERTIFICATE MODAL ====================
@@ -500,12 +536,19 @@ function openCertModal(filename, title, filepath) {
     imageEl.style.display = 'none';
     pdfEl.style.display = 'block';
     pdfEl.src = filepath;
+    pdfEl.style.width = '100%';
+    pdfEl.style.height = '500px';
+    pdfEl.style.border = 'none';
   } else {
     imageEl.style.display = 'block';
     pdfEl.style.display = 'none';
     pdfEl.src = '';
     imageEl.src = filepath;
     imageEl.alt = title || 'Certificate';
+    imageEl.style.width = '100%';
+    imageEl.style.height = 'auto';
+    imageEl.style.maxHeight = '600px';
+    imageEl.style.objectFit = 'contain';
   }
   
   // Set download link

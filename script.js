@@ -480,6 +480,70 @@ function updateLanguage(lang) {
   document.querySelector('.footer-text').textContent = t.footer_text;
 }
 
+// ==================== CERTIFICATE MODAL ====================
+function openCertModal(filename, title, filepath) {
+  const modal = document.getElementById('certModal');
+  const titleEl = document.getElementById('certModalTitle');
+  const imageEl = document.getElementById('certModalImage');
+  const pdfEl = document.getElementById('certModalPdf');
+  const downloadEl = document.getElementById('certModalDownload');
+  
+  // Set title
+  titleEl.textContent = title || 'Certificate';
+  
+  // Check file extension
+  const ext = filename.split('.').pop().toLowerCase();
+  const isPdf = ext === 'pdf';
+  
+  // Show/hide elements
+  if (isPdf) {
+    imageEl.style.display = 'none';
+    pdfEl.style.display = 'block';
+    pdfEl.src = filepath;
+  } else {
+    imageEl.style.display = 'block';
+    pdfEl.style.display = 'none';
+    pdfEl.src = '';
+    imageEl.src = filepath;
+    imageEl.alt = title || 'Certificate';
+  }
+  
+  // Set download link
+  downloadEl.href = filepath;
+  downloadEl.download = filename;
+  
+  // Show modal
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCertModal() {
+  const modal = document.getElementById('certModal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  
+  // Reset iframe
+  const pdfEl = document.getElementById('certModalPdf');
+  pdfEl.src = '';
+}
+
+// Close modal on overlay click
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('certModal');
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeCertModal();
+    }
+  });
+  
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeCertModal();
+    }
+  });
+});
+
 // ==================== INITIALIZE LANGUAGE ====================
 document.addEventListener('DOMContentLoaded', function() {
   const savedLang = localStorage.getItem('language');

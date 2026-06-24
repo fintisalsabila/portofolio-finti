@@ -379,12 +379,14 @@
         <div class="edu-school" data-i18n="edu.school1">POLITEKNIK STMI JAKARTA · Jakarta</div>
         <div class="edu-period">Sep 2021 – Jul 2025</div>
       </div>
-      <div class="edu-card">
+<div class="edu-card" onclick="openCertModal('BackEnd.png', 'Back-End Developer Program - DBS Foundation', 'assets/certificates/BackEnd.png')" style="cursor:pointer;">
         <div class="edu-icon"><i class="fas fa-laptop-code"></i></div>
         <div class="edu-degree" data-i18n="edu.degree2">Back-End Developer Program</div>
         <div class="edu-school" data-i18n="edu.school2">DBS FOUNDATION · Online</div>
         <div class="edu-period">Mar – Sep 2023</div>
-      </div>
+        <div style="margin-top:0.5rem; font-size:0.7rem; color:var(--accent); font-family:var(--font-mono);">
+          <i class="fas fa-hand-pointer"></i> <span data-i18n="edu.clickHint">Click to view certificate</span>
+        </div>
     </div>
   </div>
 </section>
@@ -392,66 +394,101 @@
 <!-- ==================== CERTIFICATIONS ==================== -->
 <section class="cert-section" id="certifications">
   <div class="section-container">
-    <div class="section-header fade-up">
+<div class="section-header fade-up">
       <div>
         <div class="section-number">05 / <span data-i18n="certifications.title">certifications</span></div>
         <h2 class="section-title" data-i18n="certifications.heading">Certifications</h2>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.3rem; font-family:var(--font-mono);">
+          <i class="fas fa-hand-pointer" style="color:var(--accent);"></i> 
+          <span data-i18n="certifications.clickHint">Click on any certificate to view</span>
+        </p>
       </div>
       <div class="section-line"></div>
     </div>
     <div class="cert-grid fade-up">
-      <div class="cert-card">
+      <div class="cert-card" onclick="openCertModal('', 'Soon', '')">
         <div class="cert-icon blue"><i class="fas fa-chart-line"></i></div>
         <div>
           <div class="cert-name" data-i18n="cert.name1">Penyusunan Proses Bisnis Sistem Informasi Di Industri Manufaktur</div>
           <div class="cert-org">BNSP · Jun 2026</div>
         </div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card" onclick="openCertModal('python3.png', 'Python 3 Certification - CoderPad', 'assets/certificates/python3.png')">
         <div class="cert-icon green"><i class="fab fa-python"></i></div>
         <div>
           <div class="cert-name">Python 3 Certification</div>
-          <div class="cert-org">CoderPad · <a href="https://github.com/fintisalsabila/Sertifikat/blob/main/Python/Certification.pdf" target="_blank" style="color: var(--accent);">View Certificate</a></div>
+          <div class="cert-org">CoderPad · Jul 2024</div>
         </div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card" onclick="openCertModal('mern_stack.png', 'MERN Stack Certification - MongoDB University', 'assets/certificates/mern_stack.png')">
         <div class="cert-icon purple"><i class="fab fa-react"></i></div>
         <div>
           <div class="cert-name">MERN Stack Certification</div>
-          <div class="cert-org">MongoDB University · <a href="https://github.com/fintisalsabila/Sertifikat/blob/main/MERN%20Stack/6250724_1716967891.pdf" target="_blank" style="color: var(--accent);">View Certificate</a></div>
+          <div class="cert-org">SimpliLearn · May 2024</div>
         </div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card" onclick="openCertModal('Architecting_on_AWS.pdf', 'Architecting on AWS - Amazon Web Services', 'assets/certificates/Architecting_on_AWS.pdf')">
         <div class="cert-icon blue"><i class="fab fa-aws"></i></div>
         <div>
           <div class="cert-name">Architecting on AWS</div>
-          <div class="cert-org">Amazon Web Services · <a href="https://github.com/fintisalsabila/Sertifikat/blob/main/AWS/Architecting%20in%20AWS.pdf" target="_blank" style="color: var(--accent);">View Certificate</a></div>
+          <div class="cert-org">Dicoding  · Jul 2023</div>
         </div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card" onclick="openCertModal('fullstackweb.png', 'Full Stack Web Development - Harisenin Coding Camp', 'assets/certificates/fullstackweb.png')">
         <div class="cert-icon green"><i class="fas fa-laptop-code"></i></div>
         <div>
           <div class="cert-name" data-i18n="cert.name5">Full Stack Web Development</div>
           <div class="cert-org">Harisenin Coding Camp · 2024</div>
         </div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card" onclick="openCertModal('META_ANDROID.png', 'Meta Android Developer - Coursera (Meta)', 'assets/certificates/META_ANDROID.png')">
         <div class="cert-icon purple"><i class="fab fa-android"></i></div>
         <div>
           <div class="cert-name" data-i18n="cert.name6">Meta Android Developer</div>
           <div class="cert-org">Coursera (Meta) · Aug 2023</div>
         </div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card" onclick="openCertModal('IT_SUPPORT.png', 'IT Support Specialization - Coursera (Google)', 'assets/certificates/IT_SUPPORT.png')">
         <div class="cert-icon blue"><i class="fas fa-headset"></i></div>
         <div>
           <div class="cert-name" data-i18n="cert.name7">IT Support Specialization</div>
           <div class="cert-org">Coursera (Google) · Aug 2023</div>
         </div>
       </div>
+      <div class="cert-card" onclick="openCertModal('Web_Hacking_Fundamental.png', 'Web Hacking Fundamental - Nacita', 'assets/certificates/Web_Hacking_Fundamental.png')">
+        <div class="cert-icon purple"><i class="fas fa-shield-alt"></i></div>
+        <div>
+          <div class="cert-name">Web Hacking Fundamental</div>
+          <div class="cert-org">Nacita · Sep 2024</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ==================== CERTIFICATE MODAL ==================== -->
+<div class="cert-modal-overlay" id="certModal">
+  <div class="cert-modal">
+    <div class="cert-modal-header">
+      <h3 class="cert-modal-title" id="certModalTitle">Certificate</h3>
+      <button class="cert-modal-close" onclick="closeCertModal()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cert-modal-body">
+      <div class="cert-modal-content" id="certModalContent">
+        <img src="" alt="Certificate" id="certModalImage">
+        <iframe src="" id="certModalPdf" style="display:none; width:100%; height:500px; border:none;"></iframe>
+      </div>
+    </div>
+    <div class="cert-modal-footer">
+      <a href="#" target="_blank" class="btn-primary" id="certModalDownload" style="font-size:0.7rem; padding:0.5rem 1.2rem; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">
+        <i class="fas fa-download"></i> Download
+      </a>
+      <button class="btn-outline" onclick="closeCertModal()" style="font-size:0.7rem; padding:0.5rem 1.2rem;">Close</button>
+    </div>
+  </div>
+</div>
 
 <!-- ==================== PROJECTS ==================== -->
 <section class="projects-section" id="projects">
@@ -501,7 +538,7 @@
           <div class="project-title">Website Prodi TRO</div>
           <p class="project-desc" data-i18n="project.tro">Automation Engineering website with content management, activity galleries, and curriculum information for the study program.</p>
           <div class="project-stack">
-            <span class="stack-tag">Laravel</span><span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">Tailwind</span>
+            <span class="stack-tag">CodeIgniter 4</span><span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">Tailwind</span>
           </div>
           <div class="project-links">
             <a href="http://tro.stmi.ac.id/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
@@ -540,7 +577,7 @@
           <div class="project-title">Website Prodi TKP</div>
           <p class="project-desc" data-i18n="project.tkp">Construction Engineering study program website with news content management and academic information.</p>
           <div class="project-stack">
-            <span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span>
+            <span class="stack-tag">CodeIgniter 4</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span>
           </div>
           <div class="project-links">
             <a href="http://tkp.stmi.ac.id/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
@@ -559,7 +596,7 @@
           <div class="project-title">Website Prodi ABO</div>
           <p class="project-desc" data-i18n="project.abo">Online Business Administration portal with student information systems and study program news management.</p>
           <div class="project-stack">
-            <span class="stack-tag">Laravel</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span>
+            <span class="stack-tag">CodeIgniter 4</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span>
           </div>
           <div class="project-links">
             <a href="http://abo.stmi.ac.id/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
@@ -638,7 +675,7 @@
           <div class="project-title">Key Performance Indicator System</div>
           <p class="project-desc" data-i18n="project.kpi">Monitors and evaluates organizational performance through clear KPIs. Provides dashboards and reports for data-driven decision making.</p>
           <div class="project-stack">
-            <span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Bootstrap</span>
+            <span class="stack-tag">Laravel</span><span class="stack-tag">MySQL</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Bootstrap</span>
           </div>
           <div class="project-links">
             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
@@ -658,7 +695,7 @@
           <div class="project-title">HarvestHouse (Property Search)</div>
           <p class="project-desc" data-i18n="project.harvest">A modern property search platform that helps users find their ideal homes with advanced filtering and location-based search features.</p>
           <div class="project-stack">
-            <span class="stack-tag">React</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Netlify</span>
+            <span class="stack-tag">HTML</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Netlify</span>
           </div>
           <div class="project-links">
             <a href="https://harveshouse-fintisalsabila.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
@@ -678,7 +715,7 @@
           <div class="project-title">Sushi Food (Restaurant Order)</div>
           <p class="project-desc" data-i18n="project.sushi">A sleek and modern sushi restaurant ordering platform with an interactive menu, cart system, and seamless ordering experience.</p>
           <div class="project-stack">
-            <span class="stack-tag">React</span><span class="stack-tag">JavaScript</span><span class="stack-tag">CSS3</span><span class="stack-tag">Netlify</span>
+            <span class="stack-tag">HTML</span><span class="stack-tag">JavaScript</span><span class="stack-tag">CSS3</span><span class="stack-tag">Netlify</span>
           </div>
           <div class="project-links">
             <a href="https://sushi-fintisalsabila.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
@@ -698,7 +735,7 @@
           <div class="project-title">Car Rental Web Application</div>
           <p class="project-desc" data-i18n="project.car">A complete car rental platform with vehicle listings, booking system, availability calendar, and user authentication for seamless car rental experience.</p>
           <div class="project-stack">
-            <span class="stack-tag">React</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Netlify</span>
+            <span class="stack-tag">HTML</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Netlify</span>
           </div>
           <div class="project-links">
             <a href="https://car-rental-fintisalsabila.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
@@ -738,7 +775,7 @@
           <div class="project-title">Web E-Ticketing</div>
           <p class="project-desc" data-i18n="project.eticket">Complete electronic ticketing system with online ticket purchases, QR code verification, admin dashboard, and real-time sales reports.</p>
           <div class="project-stack">
-            <span class="stack-tag">Laravel</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span><span class="stack-tag">QR Code</span><span class="stack-tag">Midtrans</span>
+            <span class="stack-tag">CodeIgniter 4</span><span class="stack-tag">MySQL</span><span class="stack-tag">Bootstrap</span><span class="stack-tag">QR Code</span><span class="stack-tag">Midtrans</span>
           </div>
           <div class="project-links">
             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
@@ -758,7 +795,7 @@
           <div class="project-title">Kamus Bahasa Daerah (Regional Dictionary)</div>
           <p class="project-desc" data-i18n="project.dictionary">Interactive regional language dictionary web application to preserve and learn various regional languages in Indonesia.</p>
           <div class="project-stack">
-            <span class="stack-tag">React</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Netlify</span>
+            <span class="stack-tag">HTML</span><span class="stack-tag">JavaScript</span><span class="stack-tag">Netlify</span>
           </div>
           <div class="project-links">
             <a href="https://kamus-bahasa-daerah.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
@@ -778,7 +815,7 @@
           <div class="project-title">STMIDESK (E-Ticketing Android)</div>
           <p class="project-desc" data-i18n="project.stmidesk">STMIDESK is an e-ticketing system designed to simplify event or service ticketing. It offers a secure, user-friendly platform for managing ticket sales and access, making the process convenient for both organizers and users.</p>
           <div class="project-stack">
-            <span class="stack-tag">Kotlin</span><span class="stack-tag">Android</span><span class="stack-tag">Retrofit</span><span class="stack-tag">Firebase</span>
+            <span class="stack-tag">Java</span><span class="stack-tag">Android</span><span class="stack-tag">Retrofit</span><span class="stack-tag">Firebase</span>
           </div>
           <div class="project-links">
             <a href="#" class="project-link"><i class="fab fa-google-play"></i> Play Store</a>
@@ -787,7 +824,7 @@
         </div>
       </div>
 
-      <!-- Project 17: Audit Tools Bengkel APP -->
+      <!-- Project 17: Audit Tools Bengkel -->
       <div class="project-card" data-category="android" style="display:none;">
         <div class="project-img">
           <div class="project-img-gradient"></div>
@@ -795,7 +832,7 @@
           <span class="project-type-tag">Android</span>
         </div>
         <div class="project-body">
-          <div class="project-title">Audit Tools Bengkel APP</div>
+          <div class="project-title">Audit Tools Bengkel</div>
           <p class="project-desc" data-i18n="project.audit">This mobile app helps automotive workshops conduct regular audits to ensure compliance with standards. It simplifies the inspection process, identifies areas for improvement, and generates detailed audit reports.</p>
           <div class="project-stack">
             <span class="stack-tag">Kotlin</span><span class="stack-tag">Android</span><span class="stack-tag">Retrofit</span><span class="stack-tag">REST API</span>
@@ -807,7 +844,7 @@
         </div>
       </div>
 
-      <!-- Project 18: Order Tools Bengkel APP -->
+      <!-- Project 18: Order Tools Bengkel -->
       <div class="project-card" data-category="android" style="display:none;">
         <div class="project-img">
           <div class="project-img-gradient"></div>
@@ -815,7 +852,7 @@
           <span class="project-type-tag">Android</span>
         </div>
         <div class="project-body">
-          <div class="project-title">Order Tools Bengkel APP</div>
+          <div class="project-title">Order Tools Bengkel</div>
           <p class="project-desc" data-i18n="project.order">This application helps automotive workshops manage tool orders and inventory efficiently. It ensures that essential tools are always available, streamlining operations and minimizing downtime.</p>
           <div class="project-stack">
             <span class="stack-tag">Kotlin</span><span class="stack-tag">Android</span><span class="stack-tag">Retrofit</span><span class="stack-tag">MySQL</span>
@@ -827,7 +864,7 @@
         </div>
       </div>
 
-      <!-- Project 19: Training Mekanik APP -->
+      <!-- Project 19: Training Mekanik -->
       <div class="project-card" data-category="android" style="display:none;">
         <div class="project-img">
           <div class="project-img-gradient"></div>
@@ -835,7 +872,7 @@
           <span class="project-type-tag">Android</span>
         </div>
         <div class="project-body">
-          <div class="project-title">Training Mekanik APP</div>
+          <div class="project-title">Training Mekanik</div>
           <p class="project-desc" data-i18n="project.training">A dedicated app for managing mechanic training programs. It allows mechanics to register for courses, track progress, and access training materials, supporting skill development and certification.</p>
           <div class="project-stack">
             <span class="stack-tag">Kotlin</span><span class="stack-tag">Android</span><span class="stack-tag">Node.js</span><span class="stack-tag">MySQL</span>

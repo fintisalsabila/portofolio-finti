@@ -276,7 +276,7 @@ const translations = {
     // Hero
     hero_tag: 'Tersedia untuk Proyek',
     hero_subtitle: '// Full Stack Developer & Android Engineer',
-    hero_desc: 'Pengembang yang bersemangat dan bercita-cita dengan kecintaan mendalam untuk menciptakan solusi inovatif. Berpengalaman dalam pengembangan Android, Web, dan Full Stack — mengubah ide menjadi pengalaman digital yang mulus.',
+    hero_desc: 'Pengembang yang bersemangat dan bercita-cita dengan kecintaan mendalam untuk menciptakan solusi inovatif. Berpengalaman dalam pengembangan Android, Web, dan Full Stack, mengubah ide menjadi pengalaman digital yang mulus.',
     hero_btn_projects: 'Lihat Proyek',
     hero_btn_hire: 'Hubungi Saya',
     cv_en: 'Download CV (EN)',

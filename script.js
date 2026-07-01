@@ -176,7 +176,7 @@ const translations = {
     
     // Hero
     hero_tag: 'Available for Projects',
-    hero_subtitle: '// Full Stack Developer & Android Engineer',
+    hero_subtitle: '// Full Stack Developer',
     hero_desc: 'Passionate and aspiring developer with a deep love for creating innovative solutions. Experienced in Android, Web, and Full Stack development, turning ideas into seamless digital experiences.',
     hero_btn_projects: 'View Projects',
     hero_btn_hire: 'Hire Me',
@@ -190,9 +190,9 @@ const translations = {
     about_text2: 'With a deep love for coding and problem-solving, I constantly seek opportunities to learn and grow in this ever-evolving field. My experience spans across Android development, full stack web development, and IT support.',
     about_text3: "I've worked professionally as a <strong>Full Stack Developer</strong> at Politeknik STMI Jakarta, as a <strong>Mobile Developer</strong> at PT Wahana Makmur Sejati, and as a <strong>Freelance Web Developer</strong> building real-world applications that serve actual users.",
     about_highlight1_title: 'Android Developer',
-    about_highlight1_desc: 'Kotlin, Java, Retrofit, XML Layout Design — building native Android apps',
+    about_highlight1_desc: 'Kotlin, Java, Retrofit, XML Layout Design, building native Android apps',
     about_highlight2_title: 'Web Developer',
-    about_highlight2_desc: 'Laravel, CodeIgniter 4, PHP Native, Bootstrap — building responsive web apps',
+    about_highlight2_desc: 'Laravel, CodeIgniter 4, PHP Native, Bootstrap, building responsive web apps',
     about_highlight3_title: 'Full Stack Developer',
     about_highlight3_desc: 'End-to-end development from database design to UI implementation',
     about_highlight4_title: 'IT Support',
@@ -289,8 +289,8 @@ const translations = {
     
     // Hero
     hero_tag: 'Tersedia untuk Proyek',
-    hero_subtitle: '// Full Stack Developer & Android Engineer',
-    hero_desc: 'Pengembang yang bersemangat dan bercita-cita dengan kecintaan mendalam untuk menciptakan solusi inovatif. Berpengalaman dalam pengembangan Android, Web, dan Full Stack, mengubah ide menjadi pengalaman digital yang mulus.',
+    hero_subtitle: '// Full Stack Developer',
+    hero_desc: 'Pengembang yang bersemangat dan berorientasi pada solusi, dengan kecintaan mendalam terhadap inovasi teknologi. Berpengalaman dalam pengembangan Android, Web, dan Full Stack, serta terampil mewujudkan ide menjadi pengalaman digital yang intuitif dan efisien.',
     hero_btn_projects: 'Lihat Proyek',
     hero_btn_hire: 'Hubungi Saya',
     cv_en: 'Download CV (EN)',
@@ -303,9 +303,9 @@ const translations = {
     about_text2: 'Dengan kecintaan mendalam terhadap coding dan pemecahan masalah, saya terus mencari peluang untuk belajar dan berkembang di bidang yang terus berkembang ini. Pengalaman saya mencakup pengembangan Android, full stack web, dan dukungan IT.',
     about_text3: "Saya telah bekerja secara profesional sebagai <strong>Full Stack Developer</strong> di Politeknik STMI Jakarta, sebagai <strong>Mobile Developer</strong> di PT Wahana Makmur Sejati, dan sebagai <strong>Freelance Web Developer</strong> yang membangun aplikasi dunia nyata yang melayani pengguna aktual.",
     about_highlight1_title: 'Android Developer',
-    about_highlight1_desc: 'Kotlin, Java, Retrofit, XML Layout Design — membangun aplikasi Android native',
+    about_highlight1_desc: 'Kotlin, Java, Retrofit, XML Layout Design, membangun aplikasi Android native',
     about_highlight2_title: 'Web Developer',
-    about_highlight2_desc: 'Laravel, CodeIgniter 4, PHP Native, Bootstrap — membangun aplikasi web responsif',
+    about_highlight2_desc: 'Laravel, CodeIgniter 4, PHP Native, Bootstrap, membangun aplikasi web responsif',
     about_highlight3_title: 'Full Stack Developer',
     about_highlight3_desc: 'Pengembangan end-to-end dari desain database hingga implementasi UI',
     about_highlight4_title: 'IT Support',
